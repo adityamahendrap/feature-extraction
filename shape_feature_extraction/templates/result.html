@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Ekstraksi Fitur Bentuk</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background-image: url("static/assets/bg-nerd.jpg");
+        background-size: 150px;
+        background-position: center center;
+        background-repeat: repeat;
+      }
+    </style>
+    <div
+      class="container h-screen flex flex-col justify-center items-center mx-auto md:w-8/12 lg:6/12"
+    >
+      <div
+        class="bg-white flex flex-col justify-center items-center mx-auto border border-black p-10 rounded-xl shadow-xl"
+      >
+        <h1 class="text-xl font-bold mb-8">
+          Ekstraksi Fitur Bentuk dengan Metode {{ metode }}
+        </h1>
+        <div class="flex gap-4">
+          <div>
+            <img src="{{ initial_path }}" alt="Citra Awal" style="height: 150px"/>
+          </div>
+          <div>
+            <img src="{{ result_path }}" alt="Citra Hasil Proses" style="height: 150px"/>
+          </div>
+        </div>
+
+        <h2 class="mt-8 mb-2 font-bold">Hasil Ekstraksi:</h2>
+        <div class="flex gap-8 justify-center items-center">
+          <div>
+            <p>Area: {{ features.area }}</p>
+            <p>Perimeter: {{ features.perimeter }}</p>
+            <p>Slimness: {{ features.slimness }}</p>
+            <p>Roundness: {{ features.roundness }}</p>
+          </div>
+          <div>
+            <p>Rectangularity: {{ features.rectangularity }}</p>
+            <p>Narrow Factor: {{ features.narrow_factor }}</p>
+            <p>
+              Ratio Perimeter Diameter: {{ features.ratio_perimeter_diameter }}
+            </p>
+            <p>
+              Ratio Perimeter Length Width: {{
+              features.ratio_perimeter_length_width }}
+            </p>
+          </div>
+        </div>
+        <a
+          href="/"
+          class="mt-6 mx-auto cursor-pointer text-xs flex justify-center w-fit bg-blue-500 text-white px-2 py-1 rounded-md"
+        >
+          Back
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
