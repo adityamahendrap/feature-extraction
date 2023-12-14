@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Ekstraksi Fitur Bentuk</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background-image: url("static/assets/bg-nerd.jpg000");
+        background-size: 150px;
+        background-position: center center;
+        background-repeat: repeat;
+      }
+    </style>
+    <div
+      class="container min-h-screen flex flex-col justify-center items-center mx-auto my-10"
+    >
+      <div
+        class="bg-white flex flex-col justify-center items-center mx-auto border border-black px-10 py-5 rounded-xl shadow-xl mb-4"
+      >
+        <h1 class="text-xl font-bold mb-4">Citra Asli</h1>
+        <img src="/{{ initial_path }}" alt="Citra Awal" style="height: 150px" />
+      </div>
+      <div class="grid grid-cols-3 gap-4">
+        <div
+          class="bg-white flex flex-col justify-center items-center mx-auto border border-black p-10 rounded-xl shadow-xl"
+        >
+          <h1 class="text-xl font-bold mb-8">
+            Metode {{ robert_result.metode }}
+          </h1>
+          <div class="flex gap-4">
+            <div>
+              <img
+                src="/{{ robert_result.result_path }}"
+                alt="Citra Hasil Proses"
+                style="height: 150px"
+              />
+            </div>
+          </div>
+
+          <h2 class="mt-8 mb-2 font-bold">Hasil Ekstraksi:</h2>
+          <div class="flex gap-8 justify-center items-center">
+            <div>
+              <p class="text-sm">Area: {{ robert_result.features.area }}</p>
+              <p class="text-sm">Perimeter: {{ robert_result.features.perimeter }}</p>
+              <p class="text-sm">Slimness: {{ robert_result.features.slimness }}</p>
+              <p class="text-sm">Roundness: {{ robert_result.features.roundness }}</p>
+            </div>
+            <div>
+              <p class="text-sm">Rectangularity: {{ robert_result.features.rectangularity }}</p>
+              <p class="text-sm">Narrow Factor: {{ robert_result.features.narrow_factor }}</p>
+              <p class="text-sm">
+                Ratio Perimeter Diameter: {{
+                robert_result.features.ratio_perimeter_diameter }}
+              </p>
+              <p class="text-sm">
+                Ratio Perimeter Length Width: {{
+                robert_result.features.ratio_perimeter_length_width }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white flex flex-col justify-center items-center mx-auto border border-black p-10 rounded-xl shadow-xl"
+        >
+          <h1 class="text-xl font-bold mb-8">
+            Metode {{ sobel_result.metode }}
+          </h1>
+          <div class="flex gap-4">
+            <div>
+              <img
+                src="/{{ sobel_result.result_path }}"
+                alt="Citra Hasil Proses"
+                style="height: 150px"
+              />
+            </div>
+          </div>
+
+          <h2 class="mt-8 mb-2 font-bold">Hasil Ekstraksi:</h2>
+          <div class="flex gap-8 justify-center items-center">
+            <div>
+              <p class="text-sm">Area: {{ sobel_result.features.area }}</p>
+              <p class="text-sm">Perimeter: {{ sobel_result.features.perimeter }}</p>
+              <p class="text-sm">Slimness: {{ sobel_result.features.slimness }}</p>
+              <p class="text-sm">Roundness: {{ sobel_result.features.roundness }}</p>
+            </div>
+            <div>
+              <p class="text-sm">Rectangularity: {{ sobel_result.features.rectangularity }}</p>
+              <p class="text-sm">Narrow Factor: {{ sobel_result.features.narrow_factor }}</p>
+              <p class="text-sm">
+                Ratio Perimeter Diameter: {{
+                sobel_result.features.ratio_perimeter_diameter }}
+              </p>
+              <p class="text-sm">
+                Ratio Perimeter Length Width: {{
+                sobel_result.features.ratio_perimeter_length_width }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white flex flex-col justify-center items-center mx-auto border border-black p-10 rounded-xl shadow-xl"
+        >
+          <h1 class="text-xl font-bold mb-8">
+            Metode {{ prewitt_result.metode }}
+          </h1>
+          <div class="flex gap-4">
+            <div>
+              <img
+                src="/{{ prewitt_result.result_path }}"
+                alt="Citra Hasil Proses"
+                style="height: 150px"
+              />
+            </div>
+          </div>
+
+          <h2 class="mt-8 mb-2 font-bold">Hasil Ekstraksi:</h2>
+          <div class="flex gap-8 justify-center items-center">
+            <div>
+              <p class="text-sm">Area: {{ prewitt_result.features.area }}</p>
+              <p class="text-sm">Perimeter: {{ prewitt_result.features.perimeter }}</p>
+              <p class="text-sm">Slimness: {{ prewitt_result.features.slimness }}</p>
+              <p class="text-sm">Roundness: {{ prewitt_result.features.roundness }}</p>
+            </div>
+            <div>
+              <p class="text-sm">
+                Rectangularity: {{ prewitt_result.features.rectangularity }}
+              </p>
+              <p class="text-sm">Narrow Factor: {{ prewitt_result.features.narrow_factor }}</p>
+              <p class="text-sm">
+                Ratio Perimeter Diameter: {{
+                prewitt_result.features.ratio_perimeter_diameter }}
+              </p>
+              <p class="text-sm">
+                Ratio Perimeter Length Width: {{
+                prewitt_result.features.ratio_perimeter_length_width }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white flex flex-col justify-center items-center mx-auto border border-black p-10 rounded-xl shadow-xl"
+        >
+          <h1 class="text-xl font-bold mb-8">
+            Metode {{ canny_result.metode }}
+          </h1>
+          <div class="flex gap-4">
+            <div>
+              <img
+                src="/{{ canny_result.result_path }}"
+                alt="Citra Hasil Proses"
+                style="height: 150px"
+              />
+            </div>
+          </div>
+
+          <h2 class="mt-8 mb-2 font-bold">Hasil Ekstraksi:</h2>
+          <div class="flex gap-8 justify-center items-center">
+            <div>
+              <p class="text-sm">Area: {{ canny_result.features.area }}</p>
+              <p class="text-sm">Perimeter: {{ canny_result.features.perimeter }}</p>
+              <p class="text-sm">Slimness: {{ canny_result.features.slimness }}</p>
+              <p class="text-sm">Roundness: {{ canny_result.features.roundness }}</p>
+            </div>
+            <div>
+              <p class="text-sm">Rectangularity: {{ canny_result.features.rectangularity }}</p>
+              <p class="text-sm">Narrow Factor: {{ canny_result.features.narrow_factor }}</p>
+              <p class="text-sm">
+                Ratio Perimeter Diameter: {{
+                canny_result.features.ratio_perimeter_diameter }}
+              </p>
+              <p class="text-sm">
+                Ratio Perimeter Length Width: {{
+                canny_result.features.ratio_perimeter_length_width }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white flex flex-col justify-center items-center mx-auto border border-black p-10 rounded-xl shadow-xl"
+        >
+          <h1 class="text-xl font-bold mb-8">
+            Metode {{ hough_transform_result.metode }}
+          </h1>
+          <div class="flex gap-4">
+            <div>
+              <img
+                src="/{{ hough_transform_result.result_path }}"
+                alt="Citra Hasil Proses"
+                style="height: 150px"
+              />
+            </div>
+          </div>
+
+          <h2 class="mt-8 mb-2 font-bold">Hasil Ekstraksi:</h2>
+          <div class="flex gap-8 justify-center items-center">
+            <div>
+              <p class="text-sm">Area: {{ hough_transform_result.features.area }}</p>
+              <p class="text-sm">Perimeter: {{ hough_transform_result.features.perimeter }}</p>
+              <p class="text-sm">Slimness: {{ hough_transform_result.features.slimness }}</p>
+              <p class="text-sm">Roundness: {{ hough_transform_result.features.roundness }}</p>
+            </div>
+            <div>
+              <p class="text-sm">Rectangularity: {{ hough_transform_result.features.rectangularity }}</p>
+              <p class="text-sm">Narrow Factor: {{ hough_transform_result.features.narrow_factor }}</p>
+              <p class="text-sm">
+                Ratio Perimeter Diameter: {{
+                hough_transform_result.features.ratio_perimeter_diameter }}
+              </p>
+              <p class="text-sm">
+                Ratio Perimeter Length Width: {{
+                hough_transform_result.features.ratio_perimeter_length_width }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="/"
+        class="mt-6 mx-auto cursor-pointer text-xs flex justify-center w-fit bg-blue-500 text-white px-2 py-1 rounded-md"
+      >
+        Back
+      </a>
+    </div>
+  </body>
+</html>

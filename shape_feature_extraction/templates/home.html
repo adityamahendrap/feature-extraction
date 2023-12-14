@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Ekstraksi Fitur Bentuk</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <style>
       body {
-        background-image: url("static/assets/bg-nerd.jpg");
-        background-size: 150px; 
-        background-position: center center; 
-        background-repeat: repeat; 
+        background-image: url("static/assets/bg-nerd.jpg000");
+        background-size: 150px;
+        background-position: center center;
+        background-repeat: repeat;
       }
 
       .glass {
         background: rgba(255, 255, 255, 0.1);
         border-radius: 10px;
         padding: 20px;
-        backdrop-filter: blur(5px); 
+        backdrop-filter: blur(5px);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+      }
     </style>
     <div
       class="container h-screen flex flex-col justify-center items-center mx-auto md:w-8/12 lg:6/12"
@@ -43,16 +50,16 @@
         </div>
 
         <form
-          action="/shape_feature_extraction"
+          id="myForm"
           method="POST"
           enctype="multipart/form-data"
           onsubmit="return showImage()"
         >
           <label
             for="image"
-            class="mx-auto cursor-pointer text-xs flex justify-center w-fit bg-blue-500 text-white px-2 py-1 rounded-md"
-            >Pilih Gambar</label
-          >
+            class="mx-auto cursor-pointer gap-2 text-xs flex justify-center items-center w-fit bg-blue-500 text-white px-2 py-1 rounded-md"
+            >Pilih Gambar <i class="fa-solid fa-image"></i
+          ></label>
           <input
             type="file"
             name="file"
@@ -115,7 +122,7 @@
               />
               <label for="metode2">Canny</label>
             </div>
-            <div class="flex flex-col">
+            <!-- <div class="flex flex-col">
               <input
                 type="radio"
                 id="metode5"
@@ -124,18 +131,34 @@
                 class="mr-2"
               />
               <label for="metode2">Chain Code</label>
-            </div>
+            </div> -->
           </div>
           <button
-            class="mt-8 mx-auto cursor-pointer flex justify-center w-fit bg-blue-500 text-white py-2 px-4 rounded-md"
+            type="button"
+            onclick="submitForm('/shape_feature_extraction')"
+            class="mt-8 mx-auto cursor-pointer gap-2 text-xs flex justify-center items-center w-fit bg-blue-500 text-white px-2 py-1 rounded-md"
           >
             Ekstrak
+          </button>
+          <div class="text-center my-2 text-sm text-gray-500">atau</div>
+          <button
+            type="button"
+            onclick="submitForm('/shape_feature_extraction/all')"
+            class="mx-auto cursor-pointer gap-2 text-xs flex justify-center items-center w-fit bg-blue-500 text-white px-2 py-1 rounded-md"
+          >
+            Ekstrak dengan semua metode
           </button>
         </form>
       </div>
     </div>
 
     <script>
+      function submitForm(action) {
+        var form = document.getElementById("myForm");
+        form.action = action;
+        form.submit();
+      }
+
       function previewImage() {
         var preview = document.getElementById("image-preview");
         var fileInput = document.getElementById("image");
